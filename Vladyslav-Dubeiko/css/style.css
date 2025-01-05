@@ -624,6 +624,9 @@ body {
   .item-portfolio__name {
     font-size: 1.625rem
   }
+  .item-portfolio__name::before {
+    margin-top: .15625rem
+  }
   .item-portfolio__repository {
     font-size: 1.25rem
   }
