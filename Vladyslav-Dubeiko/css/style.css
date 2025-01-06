@@ -398,7 +398,7 @@ body {
 .portfolio__items {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 1.875rem
+  gap: 2.1875rem
 }
 .contacts__title {
   text-align: center
