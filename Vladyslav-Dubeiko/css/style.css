@@ -205,7 +205,8 @@ body {
   aspect-ratio: 364/298;
   overflow: hidden;
   border-radius: .9375rem .9375rem 0 0;
-  border: .125rem solid #000
+  border: .125rem solid #000;
+  background-color: #000
 }
 .item-portfolio__image img {
   width: 100%;
@@ -298,16 +299,6 @@ body {
   font-weight: 500;
   line-height: 1.2;
   padding-bottom: .125rem
-}
-.menu__link::after {
-  position: absolute;
-  content: "";
-  top: 100%;
-  left: 0;
-  width: 0;
-  height: .125rem;
-  background-color: #000;
-  transition: width .3s
 }
 .footer {
   padding-block: 1.125rem;
@@ -477,6 +468,23 @@ body {
   }
   .about__text {
     font-size: 1.5rem
+  }
+}
+@media (min-width:48em) {
+  .menu__link::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: .125rem;
+    background-color: #000;
+    transition: width .3s
+  }
+}
+@media (min-width:48em)and (any-hover:hover) {
+  .menu__link:hover::after {
+    width: 100%
   }
 }
 @media (min-width:62em) {
@@ -744,7 +752,7 @@ body {
   }
 }
 @media (any-hover:hover) {
-  .item-portfolio__image img:hover {
+  .item-portfolio__image:hover img {
     -webkit-transform: scale(1.04);
     transform: scale(1.04)
   }
@@ -753,9 +761,6 @@ body {
   }
   .item-portfolio__repository:hover {
     color: #0017e9
-  }
-  .menu__link:hover::after {
-    width: 100%
   }
   .content-hero__button:hover {
     background-color: #000;
