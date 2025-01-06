@@ -17,6 +17,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
+._icon-discord:before {
+  content: ""
+}
 ._icon-phone:before {
   content: ""
 }
