@@ -122,6 +122,10 @@ body {
   opacity: 1;
   transition: opacity .5s
 }
+*:focus {
+  outline: 0;
+  box-shadow: 0 0 .4375rem #000
+}
 .wrapper {
   min-height: 100%;
   display: flex;
