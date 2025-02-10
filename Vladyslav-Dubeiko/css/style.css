@@ -781,8 +781,8 @@ body {
 }
 @media (any-hover:hover) {
   .item-portfolio__image:hover img {
-    -webkit-transform: scale(1.04);
-    transform: scale(1.04)
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03)
   }
   .item-portfolio__name:hover {
     color: #0017e9
