@@ -1,52 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<title>Portfolio</title>
-	<meta charset="UTF-8">
-	<meta name="format-detection" content="telephone=no">
-	<style>
-		body {
-			opacity: 0;
-		}
-	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20250210101046">
-	<link rel="shortcut icon" href="favicon.ico">
-	<!-- <meta name="robots" content="noindex, nofollow"> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+@@include('html/_head.htm',{
+"title":"Portfolio"
+})
 
 <body>
 	<div class="wrapper">
-		<header class="header">
-			<div class="header__container">
-				<a href="" class="header__logo">VD</a>
-				<div class="header__menu menu">
-					<button aria-label="menu" type="button" class="menu__icon icon-menu"><span></span></button>
-					<nav class="menu__body">
-						<ul class="menu__list">
-							<li class="menu__item">
-								<a href="#" data-goto="#home" data-goto-header class="menu__link">home</a>
-							</li>
-							<li class="menu__item">
-								<a href="#" data-goto="#about" data-goto-header class="menu__link">about</a>
-							</li>
-							<li class="menu__item">
-								<a href="#" data-goto="#portfolio" data-goto-header class="menu__link">portfolio</a>
-							</li>
-							<li class="menu__item">
-								<a href="#" data-goto="#contacts" data-goto-header class="menu__link">contacts</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
+		@@include('html/_header.htm',{})
 		<main class="page">
 			<section id="home" class="page__hero hero">
 				<div class="hero__container">
 					<div class="hero__image">
-						<img src="img/avatar.webp" alt="Image">
+						<img src="@img/avatar.jpg" alt="Image">
 					</div>
 					<div class="hero__content content-hero">
 						<h1 class="content-hero__title">Vladyslav Dubeiko | Frontend Developer | Ukraine</h1>
@@ -98,68 +63,100 @@
 					</div>
 					<div class="portfolio__items">
 						<article class="portfolio__item item-portfolio">
-							<a href="https://vladd16.github.io/Portfolio/Growfy/" target="_blank" class="item-portfolio__image">
-								<img src="img/cards/Growfy.webp" alt="Site Cover">
+							<a href="https://vladd16.github.io/Portfolio/EcommerceMinimal/" target="_blank"
+								class="item-portfolio__image">
+								<img src="@img/cards/EcommerceMinimal.jpg" alt="Site Cover">
 							</a>
-							<a href="https://vladd16.github.io/Portfolio/Growfy/" target="_blank" class="item-portfolio__name _icon-internet">
+							<a href="https://vladd16.github.io/Portfolio/EcommerceMinimal/" target="_blank"
+								class="item-portfolio__name _icon-internet">
+								<h4>Coral</h4>
+							</a>
+							<a href="https://github.com/VladD16/Portfolio/tree/main/EcommerceMinimal" target="_blank"
+								class="item-portfolio__repository _icon-github">
+								repository
+							</a>
+						</article>
+						<article class="portfolio__item item-portfolio">
+							<a href="https://vladd16.github.io/Portfolio/Growfy/" target="_blank"
+								class="item-portfolio__image">
+								<img src="@img/cards/Growfy.jpg" alt="Site Cover">
+							</a>
+							<a href="https://vladd16.github.io/Portfolio/Growfy/" target="_blank"
+								class="item-portfolio__name _icon-internet">
 								<h4>Growfy</h4>
 							</a>
-							<a href="https://github.com/VladD16/Portfolio/tree/main/Growfy" target="_blank" class="item-portfolio__repository _icon-github">
+							<a href="https://github.com/VladD16/Portfolio/tree/main/Growfy" target="_blank"
+								class="item-portfolio__repository _icon-github">
 								repository
 							</a>
 						</article>
 						<article class="portfolio__item item-portfolio">
-							<a href="https://vladd16.github.io/Portfolio/Lidia/" target="_blank" class="item-portfolio__image">
-								<img src="img/cards/Lidia.webp" alt="Site Cover">
+							<a href="https://vladd16.github.io/Portfolio/Lidia/" target="_blank"
+								class="item-portfolio__image">
+								<img src="@img/cards/Lidia.jpg" alt="Site Cover">
 							</a>
-							<a href="https://vladd16.github.io/Portfolio/Lidia/" target="_blank" class="item-portfolio__name _icon-internet">
+							<a href="https://vladd16.github.io/Portfolio/Lidia/" target="_blank"
+								class="item-portfolio__name _icon-internet">
 								<h4>Lidia</h4>
 							</a>
-							<a href="https://github.com/VladD16/Portfolio/tree/main/Lidia" target="_blank" class="item-portfolio__repository _icon-github">
+							<a href="https://github.com/VladD16/Portfolio/tree/main/Lidia" target="_blank"
+								class="item-portfolio__repository _icon-github">
 								repository
 							</a>
 						</article>
 						<article class="portfolio__item item-portfolio">
-							<a href="https://vladd16.github.io/Portfolio/RealEstate/" target="_blank" class="item-portfolio__image">
-								<img src="img/cards/RealEstate.webp" alt="Site Cover">
+							<a href="https://vladd16.github.io/Portfolio/RealEstate/" target="_blank"
+								class="item-portfolio__image">
+								<img src="@img/cards/RealEstate.jpg" alt="Site Cover">
 							</a>
-							<a href="https://vladd16.github.io/Portfolio/RealEstate/" target="_blank" class="item-portfolio__name _icon-internet">
+							<a href="https://vladd16.github.io/Portfolio/RealEstate/" target="_blank"
+								class="item-portfolio__name _icon-internet">
 								<h4>SmartSpace</h4>
 							</a>
-							<a href="https://github.com/VladD16/Portfolio/tree/main/RealEstate" target="_blank" class="item-portfolio__repository _icon-github">
+							<a href="https://github.com/VladD16/Portfolio/tree/main/RealEstate" target="_blank"
+								class="item-portfolio__repository _icon-github">
 								repository
 							</a>
 						</article>
 						<article class="portfolio__item item-portfolio">
-							<a href="https://vladd16.github.io/Portfolio/HolidayResort/" target="_blank" class="item-portfolio__image">
-								<img src="img/cards/HolidayResort.webp" alt="Site Cover">
+							<a href="https://vladd16.github.io/Portfolio/HolidayResort/" target="_blank"
+								class="item-portfolio__image">
+								<img src="@img/cards/HolidayResort.jpg" alt="Site Cover">
 							</a>
-							<a href="https://vladd16.github.io/Portfolio/HolidayResort/" target="_blank" class="item-portfolio__name _icon-internet">
+							<a href="https://vladd16.github.io/Portfolio/HolidayResort/" target="_blank"
+								class="item-portfolio__name _icon-internet">
 								<h4>HolidayResort</h4>
 							</a>
-							<a href="https://github.com/VladD16/Portfolio/tree/main/HolidayResort" target="_blank" class="item-portfolio__repository _icon-github">
+							<a href="https://github.com/VladD16/Portfolio/tree/main/HolidayResort" target="_blank"
+								class="item-portfolio__repository _icon-github">
 								repository
 							</a>
 						</article>
 						<article class="portfolio__item item-portfolio">
-							<a href="https://vladd16.github.io/Portfolio/EcoCabins/" target="_blank" class="item-portfolio__image">
-								<img src="img/cards/EcoCabins.webp" alt="Site Cover">
+							<a href="https://vladd16.github.io/Portfolio/EcoCabins/" target="_blank"
+								class="item-portfolio__image">
+								<img src="@img/cards/EcoCabins.jpg" alt="Site Cover">
 							</a>
-							<a href="https://vladd16.github.io/Portfolio/EcoCabins/" target="_blank" class="item-portfolio__name _icon-internet">
+							<a href="https://vladd16.github.io/Portfolio/EcoCabins/" target="_blank"
+								class="item-portfolio__name _icon-internet">
 								<h4>EcoCabins</h4>
 							</a>
-							<a href="https://github.com/VladD16/Portfolio/tree/main/EcoCabins" target="_blank" class="item-portfolio__repository _icon-github">
+							<a href="https://github.com/VladD16/Portfolio/tree/main/EcoCabins" target="_blank"
+								class="item-portfolio__repository _icon-github">
 								repository
 							</a>
 						</article>
 						<article class="portfolio__item item-portfolio">
-							<a href="https://vladd16.github.io/Portfolio/Rhythm/" target="_blank" class="item-portfolio__image">
-								<img src="img/cards/Rhythm.webp" alt="Site Cover">
+							<a href="https://vladd16.github.io/Portfolio/Rhythm/" target="_blank"
+								class="item-portfolio__image">
+								<img src="@img/cards/Rhythm.jpg" alt="Site Cover">
 							</a>
-							<a href="https://vladd16.github.io/Portfolio/Rhythm/" target="_blank" class="item-portfolio__name _icon-internet">
+							<a href="https://vladd16.github.io/Portfolio/Rhythm/" target="_blank"
+								class="item-portfolio__name _icon-internet">
 								<h4>Rhythm</h4>
 							</a>
-							<a href="https://github.com/VladD16/Portfolio/tree/main/Rhythm" target="_blank" class="item-portfolio__repository _icon-github">
+							<a href="https://github.com/VladD16/Portfolio/tree/main/Rhythm" target="_blank"
+								class="item-portfolio__repository _icon-github">
 								repository
 							</a>
 						</article>
@@ -172,15 +169,19 @@
 						<h2 class="title">connect with me</h2>
 					</div>
 					<div class="contacts__items">
-						<a class="contacts__item _icon-mail" href="mailto:vlad.work.1605@gmail.com">vlad.work.1605@gmail.com
+						<a class="contacts__item _icon-mail"
+							href="mailto:vlad.work.1605@gmail.com">vlad.work.1605@gmail.com
 						</a>
 						<a class="contacts__item _icon-phone" href="tel:380667034918">38 066 703 49 18
 						</a>
-						<a class="contacts__item _icon-telegram" target="_blank" href="https://t.me/Vlad_Dubeiko">Telegram
+						<a class="contacts__item _icon-telegram" target="_blank"
+							href="https://t.me/Vlad_Dubeiko">Telegram
 						</a>
-						<a class="contacts__item _icon-linkedin" target="_blank" href="https://www.linkedin.com/in/vladyslav-dubeiko-3648852b8/">Linkedin
+						<a class="contacts__item _icon-linkedin" target="_blank"
+							href="https://www.linkedin.com/in/vladyslav-dubeiko-3648852b8/">Linkedin
 						</a>
-						<a class="contacts__item _icon-discord" target="_blank" href="https://discord.com/users/vladislav_86120">Discord
+						<a class="contacts__item _icon-discord" target="_blank"
+							href="https://discord.com/users/vladislav_86120">Discord
 						</a>
 						<a class="contacts__item _icon-github" target="_blank" href="https://github.com/VladD16">GitHub
 						</a>
@@ -188,13 +189,9 @@
 				</div>
 			</section>
 		</main>
-		<footer class="footer">
-			<div class="footer__container">
-				<div class="footer__copy">© Vladyslav Dubeiko, 2025. All rights reserved.</div>
-			</div>
-		</footer>
+		@@include('html/_footer.htm',{})
 	</div>
-	<script src="js/app.min.js?_v=20250210101046"></script>
+	@@include('html/_js.htm',{})
 </body>
 
 </html>
