@@ -377,73 +377,73 @@
         }), 0);
         const cards = [ {
             title: "Krovato",
-            imgSrc: "img/cards/Krovato.webp",
+            imgSrc: "img/cards/Krovato.png",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/Krovato/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Krovato"
         }, {
             title: "Hairstylist",
-            imgSrc: "img/cards/Hairstylist.webp",
+            imgSrc: "img/cards/Hairstylist.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/Hairstylist/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Hairstylist"
         }, {
             title: "Shopco",
-            imgSrc: "img/cards/Shopco.webp",
+            imgSrc: "img/cards/Shopco.png",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/Shopco/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Shopco"
         }, {
             title: "EduPlay",
-            imgSrc: "img/cards/EduPlay.webp",
+            imgSrc: "img/cards/EduPlay.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/EduPlay/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/EduPlay"
         }, {
             title: "VideoAlchemist",
-            imgSrc: "img/cards/VideoAlchemist.webp",
+            imgSrc: "img/cards/VideoAlchemist.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/VideoAlchemist/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/VideoAlchemist"
         }, {
             title: "Coral",
-            imgSrc: "img/cards/EcommerceMinimal.webp",
+            imgSrc: "img/cards/EcommerceMinimal.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/EcommerceMinimal/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/EcommerceMinimal"
         }, {
             title: "Growfy",
-            imgSrc: "img/cards/Growfy.webp",
+            imgSrc: "img/cards/Growfy.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/Growfy/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Growfy"
         }, {
             title: "Lidia",
-            imgSrc: "img/cards/Lidia.webp",
+            imgSrc: "img/cards/Lidia.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/Lidia/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Lidia"
         }, {
             title: "SmartSpace",
-            imgSrc: "img/cards/RealEstate.webp",
+            imgSrc: "img/cards/RealEstate.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/RealEstate/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/RealEstate"
         }, {
             title: "HolidayResort",
-            imgSrc: "img/cards/HolidayResort.webp",
+            imgSrc: "img/cards/HolidayResort.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/HolidayResort/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/HolidayResort"
         }, {
             title: "EcoCabins",
-            imgSrc: "img/cards/EcoCabins.webp",
+            imgSrc: "img/cards/EcoCabins.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/EcoCabins/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/EcoCabins"
         }, {
             title: "Rhythm",
-            imgSrc: "img/cards/Rhythm.webp",
+            imgSrc: "img/cards/Rhythm.jpg",
             altText: "Site Cover",
             siteUrl: "https://vladd16.github.io/Portfolio/Rhythm/",
             repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Rhythm"
@@ -451,34 +451,29 @@
         "use strict";
         const portfolioContainer = document.querySelector(".portfolio__items");
         const showMoreButton = document.getElementById("show-more");
-        const portfolioPreloader = document.getElementById("portfolio-preloader");
+        const preloader = document.getElementById("portfolio-preloader");
         let cardsToShow = 3;
         let currentIndex = 0;
         function showCards() {
-            portfolioPreloader.style.display = "block";
-            const endIndex = currentIndex + cardsToShow;
-            const cardsToDisplay = cards.slice(currentIndex, endIndex);
-            cardsToDisplay.forEach((card => {
-                const cardElement = document.createElement("article");
-                cardElement.classList.add("portfolio__item", "item-portfolio");
-                cardElement.innerHTML = `\n      <a href="${card.siteUrl}" target="_blank" class="item-portfolio__image">\n        <img loading="lazy" src="${card.imgSrc}" alt="${card.altText}">\n      </a>\n      <a href="${card.siteUrl}" target="_blank" class="item-portfolio__name _icon-internet">\n        <h4>${card.title}</h4>\n      </a>\n      <a href="${card.repoUrl}" target="_blank" class="item-portfolio__repository _icon-github">\n        repository\n      </a>\n    `;
-                portfolioContainer.appendChild(cardElement);
-            }));
-            let imagesLoaded = 0;
-            const images = portfolioContainer.querySelectorAll(".portfolio__item img");
-            images.forEach((img => {
-                img.onload = () => {
-                    imagesLoaded++;
-                    if (imagesLoaded === images.length) {
-                        portfolioContainer.querySelectorAll(".portfolio__item").forEach((item => {
-                            item.classList.add("visible");
-                        }));
-                        portfolioPreloader.style.display = "none";
-                    }
-                };
-            }));
-            currentIndex = endIndex;
-            if (currentIndex >= cards.length) showMoreButton.style.display = "none";
+            showMoreButton.disabled = true;
+            preloader.style.display = "block";
+            setTimeout((() => {
+                const endIndex = currentIndex + cardsToShow;
+                const cardsToDisplay = cards.slice(currentIndex, endIndex);
+                cardsToDisplay.forEach((card => {
+                    const cardElement = document.createElement("article");
+                    cardElement.classList.add("portfolio__item", "item-portfolio");
+                    cardElement.innerHTML = `\n        <a href="${card.siteUrl}" target="_blank" class="item-portfolio__image">\n          <img loading="lazy" src="${card.imgSrc}" alt="${card.altText}">\n        </a>\n        <a href="${card.siteUrl}" target="_blank" class="item-portfolio__name _icon-internet">\n          <h4>${card.title}</h4>\n        </a>\n        <a href="${card.repoUrl}" target="_blank" class="item-portfolio__repository _icon-github">\n          repository\n        </a>\n      `;
+                    portfolioContainer.appendChild(cardElement);
+                    setTimeout((() => {
+                        cardElement.classList.add("visible");
+                    }), 1e3);
+                }));
+                currentIndex = endIndex;
+                if (currentIndex >= cards.length) showMoreButton.style.display = "none";
+                preloader.style.display = "none";
+                showMoreButton.disabled = false;
+            }), 1e3);
         }
         showCards();
         showMoreButton.addEventListener("click", showCards);

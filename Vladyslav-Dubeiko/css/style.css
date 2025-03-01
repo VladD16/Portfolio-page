@@ -404,9 +404,6 @@ body {
 .about__text span {
   color: #0017e9
 }
-.portfolio__container {
-  position: relative
-}
 .portfolio__title {
   text-align: center
 }
@@ -424,8 +421,8 @@ body {
 }
 .portfolio__item {
   opacity: 0;
-  -webkit-transform: translateY(20px);
-  transform: translateY(20px);
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
   pointer-events: none;
   transition: opacity .5s ease,-webkit-transform .5s ease;
   transition: opacity .5s ease,transform .5s ease;
@@ -454,13 +451,10 @@ body {
   box-shadow: 0 0 .4375rem #000
 }
 .portfolio__preloader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  width: 45px;
-  height: 45px;
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
   border: 5px solid #92d6e3;
   border-top: 5px solid #0017e9;
   border-radius: 50%;
@@ -468,24 +462,27 @@ body {
   animation: spin 1s linear infinite;
   display: none
 }
+.portfolio__preloader:not(:last-child) {
+  margin-bottom: 2.5rem
+}
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: translate(-50%,-50%) rotate(0);
-    transform: translate(-50%,-50%) rotate(0)
+    -webkit-transform: rotate(0);
+    transform: rotate(0)
   }
   100% {
-    -webkit-transform: translate(-50%,-50%) rotate(360deg);
-    transform: translate(-50%,-50%) rotate(360deg)
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg)
   }
 }
 @keyframes spin {
   0% {
-    -webkit-transform: translate(-50%,-50%) rotate(0);
-    transform: translate(-50%,-50%) rotate(0)
+    -webkit-transform: rotate(0);
+    transform: rotate(0)
   }
   100% {
-    -webkit-transform: translate(-50%,-50%) rotate(360deg);
-    transform: translate(-50%,-50%) rotate(360deg)
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg)
   }
 }
 .contacts__title {
