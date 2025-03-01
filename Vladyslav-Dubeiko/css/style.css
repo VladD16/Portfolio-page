@@ -415,6 +415,38 @@ body {
   grid-template-columns: repeat(3,1fr);
   gap: 2.1875rem
 }
+.portfolio__items:not(:last-child) {
+  margin-bottom: 2.5rem
+}
+.portfolio__item {
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+  transition: opacity .5s ease,-webkit-transform .5s ease;
+  transition: opacity .5s ease,transform .5s ease;
+  transition: opacity .5s ease,transform .5s ease,-webkit-transform .5s ease
+}
+.portfolio__item.visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0)
+}
+.portfolio__button {
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.125rem;
+  padding: .9375rem 1.875rem;
+  border: .125rem solid #000;
+  border-radius: .625rem;
+  background-color: #fff;
+  transition: color .3s,background-color .3s
+}
+.portfolio__button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 .4375rem #000
+}
 .contacts__title {
   text-align: center
 }
@@ -703,6 +735,9 @@ body {
     border-radius: 1.25rem;
     padding: .9375rem .625rem
   }
+  .portfolio__items:not(:last-child) {
+    margin-bottom: 1.875rem
+  }
   .portfolio__items {
     gap: .75rem
   }
@@ -791,6 +826,10 @@ body {
     color: #0017e9
   }
   .content-hero__button:hover {
+    background-color: #000;
+    color: #fff
+  }
+  .portfolio__button:hover {
     background-color: #000;
     color: #fff
   }

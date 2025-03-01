@@ -375,6 +375,101 @@
                 }));
             }
         }), 0);
+        const cards = [ {
+            title: "Krovato",
+            imgSrc: "img/cards/Krovato.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/Krovato/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Krovato"
+        }, {
+            title: "Hairstylist",
+            imgSrc: "img/cards/Hairstylist.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/Hairstylist/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Hairstylist"
+        }, {
+            title: "Shopco",
+            imgSrc: "img/cards/Shopco.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/Shopco/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Shopco"
+        }, {
+            title: "EduPlay",
+            imgSrc: "img/cards/EduPlay.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/EduPlay/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/EduPlay"
+        }, {
+            title: "VideoAlchemist",
+            imgSrc: "img/cards/VideoAlchemist.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/VideoAlchemist/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/VideoAlchemist"
+        }, {
+            title: "Coral",
+            imgSrc: "img/cards/EcommerceMinimal.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/EcommerceMinimal/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/EcommerceMinimal"
+        }, {
+            title: "Growfy",
+            imgSrc: "img/cards/Growfy.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/Growfy/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Growfy"
+        }, {
+            title: "Lidia",
+            imgSrc: "img/cards/Lidia.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/Lidia/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Lidia"
+        }, {
+            title: "SmartSpace",
+            imgSrc: "img/cards/RealEstate.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/RealEstate/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/RealEstate"
+        }, {
+            title: "HolidayResort",
+            imgSrc: "img/cards/HolidayResort.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/HolidayResort/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/HolidayResort"
+        }, {
+            title: "EcoCabins",
+            imgSrc: "img/cards/EcoCabins.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/EcoCabins/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/EcoCabins"
+        }, {
+            title: "Rhythm",
+            imgSrc: "img/cards/Rhythm.webp",
+            altText: "Site Cover",
+            siteUrl: "https://vladd16.github.io/Portfolio/Rhythm/",
+            repoUrl: "https://github.com/VladD16/Portfolio/tree/main/Rhythm"
+        } ];
+        "use strict";
+        const portfolioContainer = document.querySelector(".portfolio__items");
+        const showMoreButton = document.getElementById("show-more");
+        let cardsToShow = 3;
+        let currentIndex = 0;
+        function showCards() {
+            const endIndex = currentIndex + cardsToShow;
+            const cardsToDisplay = cards.slice(currentIndex, endIndex);
+            cardsToDisplay.forEach((card => {
+                const cardElement = document.createElement("article");
+                cardElement.classList.add("portfolio__item", "item-portfolio");
+                cardElement.innerHTML = `\n      <a href="${card.siteUrl}" target="_blank" class="item-portfolio__image">\n        <img loading="lazy" src="${card.imgSrc}" alt="${card.altText}">\n      </a>\n      <a href="${card.siteUrl}" target="_blank" class="item-portfolio__name _icon-internet">\n        <h4>${card.title}</h4>\n      </a>\n      <a href="${card.repoUrl}" target="_blank" class="item-portfolio__repository _icon-github">\n        repository\n      </a>\n    `;
+                portfolioContainer.appendChild(cardElement);
+                setTimeout((() => {
+                    cardElement.classList.add("visible");
+                }), 10);
+            }));
+            currentIndex = endIndex;
+            if (currentIndex >= cards.length) showMoreButton.style.display = "none";
+        }
+        showCards();
+        showMoreButton.addEventListener("click", showCards);
         window["FLS"] = true;
         addLoadedClass();
         menuInit();
