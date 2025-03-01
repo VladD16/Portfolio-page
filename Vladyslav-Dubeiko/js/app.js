@@ -451,22 +451,32 @@
         "use strict";
         const portfolioContainer = document.querySelector(".portfolio__items");
         const showMoreButton = document.getElementById("show-more");
+        const preloader = document.getElementById("portfolio-preloader");
         let cardsToShow = 3;
         let currentIndex = 0;
+        let totalImagesDisplayed = 0;
         function showCards() {
-            const endIndex = currentIndex + cardsToShow;
-            const cardsToDisplay = cards.slice(currentIndex, endIndex);
-            cardsToDisplay.forEach((card => {
-                const cardElement = document.createElement("article");
-                cardElement.classList.add("portfolio__item", "item-portfolio");
-                cardElement.innerHTML = `\n      <a href="${card.siteUrl}" target="_blank" class="item-portfolio__image">\n        <img loading="lazy" src="${card.imgSrc}" alt="${card.altText}">\n      </a>\n      <a href="${card.siteUrl}" target="_blank" class="item-portfolio__name _icon-internet">\n        <h4>${card.title}</h4>\n      </a>\n      <a href="${card.repoUrl}" target="_blank" class="item-portfolio__repository _icon-github">\n        repository\n      </a>\n    `;
-                portfolioContainer.appendChild(cardElement);
-                setTimeout((() => {
-                    cardElement.classList.add("visible");
-                }), 10);
-            }));
-            currentIndex = endIndex;
-            if (currentIndex >= cards.length) showMoreButton.style.display = "none";
+            showMoreButton.disabled = true;
+            preloader.style.display = "block";
+            setTimeout((() => {
+                const endIndex = currentIndex + cardsToShow;
+                const cardsToDisplay = cards.slice(currentIndex, endIndex);
+                cardsToDisplay.forEach(((card, index) => {
+                    const cardElement = document.createElement("article");
+                    cardElement.classList.add("portfolio__item", "item-portfolio");
+                    const lazyLoading = totalImagesDisplayed >= 3 ? 'loading="lazy"' : "";
+                    cardElement.innerHTML = `\n        <a href="${card.siteUrl}" target="_blank" class="item-portfolio__image">\n          <img ${lazyLoading} src="${card.imgSrc}" alt="${card.altText}">\n        </a>\n        <a href="${card.siteUrl}" target="_blank" class="item-portfolio__name _icon-internet">\n          <h4>${card.title}</h4>\n        </a>\n        <a href="${card.repoUrl}" target="_blank" class="item-portfolio__repository _icon-github">\n          repository\n        </a>\n      `;
+                    portfolioContainer.appendChild(cardElement);
+                    totalImagesDisplayed++;
+                    setTimeout((() => {
+                        cardElement.classList.add("visible");
+                    }), 1e3);
+                }));
+                currentIndex = endIndex;
+                if (currentIndex >= cards.length) showMoreButton.style.display = "none";
+                preloader.style.display = "none";
+                showMoreButton.disabled = false;
+            }), 1e3);
         }
         showCards();
         showMoreButton.addEventListener("click", showCards);

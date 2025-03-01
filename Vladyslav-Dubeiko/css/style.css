@@ -411,6 +411,7 @@ body {
   margin-bottom: 1.875rem
 }
 .portfolio__items {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 2.1875rem
@@ -422,6 +423,7 @@ body {
   opacity: 0;
   -webkit-transform: translateY(20px);
   transform: translateY(20px);
+  pointer-events: none;
   transition: opacity .5s ease,-webkit-transform .5s ease;
   transition: opacity .5s ease,transform .5s ease;
   transition: opacity .5s ease,transform .5s ease,-webkit-transform .5s ease
@@ -429,7 +431,8 @@ body {
 .portfolio__item.visible {
   opacity: 1;
   -webkit-transform: translateY(0);
-  transform: translateY(0)
+  transform: translateY(0);
+  pointer-events: all
 }
 .portfolio__button {
   display: block;
@@ -446,6 +449,42 @@ body {
 .portfolio__button:focus-visible {
   outline: 0;
   box-shadow: 0 0 .4375rem #000
+}
+.portfolio__preloader {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 2.8125rem;
+  height: 2.8125rem;
+  border: .3125rem solid #92d6e3;
+  border-top: .3125rem solid #0017e9;
+  border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  display: none
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: translate(-50%,-50%) rotate(0);
+    transform: translate(-50%,-50%) rotate(0)
+  }
+  100% {
+    -webkit-transform: translate(-50%,-50%) rotate(360deg);
+    transform: translate(-50%,-50%) rotate(360deg)
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: translate(-50%,-50%) rotate(0);
+    transform: translate(-50%,-50%) rotate(0)
+  }
+  100% {
+    -webkit-transform: translate(-50%,-50%) rotate(360deg);
+    transform: translate(-50%,-50%) rotate(360deg)
+  }
 }
 .contacts__title {
   text-align: center
